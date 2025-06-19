@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
-import { config } from '../utils/config.js';
-import { logger } from '../utils/logger.js';
-import { APIError } from '../types/index.js';
+import { config } from '../utils/config';
+import { logger } from '../utils/logger';
+import { APIError } from '../types/index';
 
 export class OpenAIService {
   private client: OpenAI;

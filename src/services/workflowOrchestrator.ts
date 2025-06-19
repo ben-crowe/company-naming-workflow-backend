@@ -1,16 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
-import { AnthropicService } from './anthropicService.js';
-import { OpenAIService } from './openaiService.js';
-import { PerplexityService } from './perplexityService.js';
-import { PromptProcessor } from './promptProcessor.js';
-import { logger } from '../utils/logger.js';
+import { AnthropicService } from './anthropicService';
+import { OpenAIService } from './openaiService';
+import { PerplexityService } from './perplexityService';
+import { PromptProcessor } from './promptProcessor';
+import { logger } from '../utils/logger';
 import { 
   WorkflowStep, 
   StepExecutionRequest, 
   StepExecutionResponse,
   WorkflowExecutionRequest,
   WorkflowExecutionResponse
-} from '../types/index.js';
+} from '../types/index';
 
 export class WorkflowOrchestrator {
   private anthropicService: AnthropicService;

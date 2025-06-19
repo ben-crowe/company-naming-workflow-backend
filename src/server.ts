@@ -1,10 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { config } from './utils/config.js';
-import { logger } from './utils/logger.js';
-import { errorHandler } from './middleware/errorHandler.js';
-import workflowRoutes from './routes/workflow.js';
+import { config } from './utils/config';
+import { logger } from './utils/logger';
+import { errorHandler } from './middleware/errorHandler';
+import workflowRoutes from './routes/workflow';
 
 const app = express();
 
@@ -87,4 +87,5 @@ if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
   });
 }
 
+module.exports = app;
 export default app;

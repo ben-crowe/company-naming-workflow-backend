@@ -1,12 +1,12 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { WorkflowOrchestrator } from '../services/workflowOrchestrator.js';
-import { validate, stepExecutionSchema, workflowExecutionSchema } from '../middleware/validation.js';
-import { logger } from '../utils/logger.js';
+import { WorkflowOrchestrator } from '../services/workflowOrchestrator';
+import { validate, stepExecutionSchema, workflowExecutionSchema } from '../middleware/validation';
+import { logger } from '../utils/logger';
 import { 
   StepExecutionRequest, 
   WorkflowExecutionRequest,
   BusinessData 
-} from '../types/index.js';
+} from '../types/index';
 
 const router = Router();
 const orchestrator = new WorkflowOrchestrator();
@@ -85,7 +85,7 @@ router.post('/validate-business-data', (req: Request, res: Response, next: NextF
   try {
     const businessData: BusinessData = req.body;
     
-    const validation = require('../services/promptProcessor.js').PromptProcessor.validateBusinessData(businessData);
+    const validation = require('../services/promptProcessor').PromptProcessor.validateBusinessData(businessData);
     
     res.json({
       isValid: validation.isValid,

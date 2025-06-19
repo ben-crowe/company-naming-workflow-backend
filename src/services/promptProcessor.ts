@@ -1,5 +1,5 @@
-import { BusinessData } from '../types/index.js';
-import { logger } from '../utils/logger.js';
+import { BusinessData } from '../types/index';
+import { logger } from '../utils/logger';
 
 export class PromptProcessor {
   
