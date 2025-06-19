@@ -82,6 +82,9 @@ jspm_packages/
 # Test files
 test-*.js
 
+# API Keys (keep secure)
+API_KEYS.md
+
 # MacOS
 .DS_Store
 node_modules
