@@ -176,6 +176,7 @@
     <script>
         // Configuration
         const API_URLS = [
+            'https://company-naming-workflow-backend.onrender.com/api/workflow',
             'https://company-naming-workflow-backend.up.railway.app/api/workflow',
             'https://company-naming-workflow-backend.vercel.app/api/workflow',
             'http://localhost:3001/api/workflow'
@@ -215,7 +216,7 @@
                         if (data.status === 'healthy') {
                             currentAPIURL = url;
                             updateAPIStatus('✅ Live API Connected', 'success');
-                            updateStatus(`✅ Connected to: ${url.replace('http://localhost:3001/api/workflow', 'Local Development').replace('https://company-naming-workflow-backend.up.railway.app/api/workflow', 'Railway Deployment').replace('https://company-naming-workflow-backend.vercel.app/api/workflow', 'Vercel Deployment')}`, 'success');
+                            updateStatus(`✅ Connected to: ${url.replace('http://localhost:3001/api/workflow', 'Local Development').replace('https://company-naming-workflow-backend.onrender.com/api/workflow', 'Render Deployment').replace('https://company-naming-workflow-backend.up.railway.app/api/workflow', 'Railway Deployment').replace('https://company-naming-workflow-backend.vercel.app/api/workflow', 'Vercel Deployment')}`, 'success');
                             document.getElementById('startBtn').disabled = false;
                             await loadWorkflowSteps();
                             return;

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: company-naming-workflow-backend
+    env: node
+    repo: https://github.com/ben-crowe/company-naming-workflow-backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ALLOWED_ORIGINS
+        value: https://company-naming-workflow-backend.onrender.com,http://localhost:3000,http://localhost:5173
+      - key: ANTHROPIC_API_KEY
+        value: YOUR_ANTHROPIC_API_KEY
+      - key: OPENAI_API_KEY
+        value: YOUR_OPENAI_API_KEY
+      - key: PERPLEXITY_API_KEY
+        value: YOUR_PERPLEXITY_API_KEY
+    healthCheckPath: /health
