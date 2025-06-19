@@ -36,6 +36,16 @@ app.use((req, _res, next) => {
 // Routes
 app.use('/api/workflow', workflowRoutes);
 
+// Health check endpoint
+app.get('/health', (_req, res) => {
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
 // Root endpoint
 app.get('/', (_req, res) => {
   res.json({
@@ -59,9 +69,9 @@ app.use('*', (_req, res) => {
 // Error handling middleware (must be last)
 app.use(errorHandler);
 
-// Start server only in non-serverless environment
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  const server = app.listen(config.PORT, () => {
+// Start server (skip only for Vercel serverless)
+if (!process.env.VERCEL) {
+  const server = app.listen(config.PORT, '0.0.0.0', () => {
     logger.info(`Server started successfully`, {
       port: config.PORT,
       environment: config.NODE_ENV,
